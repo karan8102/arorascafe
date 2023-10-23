@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arora's Cafe</title>
+
+    <style>
+        @keyframes scrollBg {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-330px);
+            }
+        }
+
+        /* Reset margin and padding for the body element */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .scroll-bg {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            padding-bottom: 330px;
+            background-color: black;
+            background-image: url('https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg');
+            background-size: cover;
+            animation: scrollBg 35s linear forwards;
+            z-index: -1; /* Move the animation behind other elements */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1; /* Move the content above the animation */
+            font-family: 'Times New Roman', serif; /* Apply Times New Roman font to all content */
+        }
+
+        /* CSS rule to change font color to white, increase font size for titles */
+        h2, h3 {
+            color: white;
+            font-size: 60px; /* Set font size to 60px for titles */
+        }
+
+        /* CSS rule to change font color to white for all content except input elements */
+        .content *:not(input[type="text"]) {
+            color: white;
+        }
+
+        /* CSS rule to set font size for input elements */
+        input[type="text"] {
+            font-size: 24px; /* Set font size as suitable for input elements */
+        }
+
+        /* CSS for table cell content (excluding input elements) */
+        table td:not(input) {
+            font-size: 26px;
+        }
+
+        /* CSS for the submit button */
+        input[type="submit"] {
+            font-size: 24px;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* CSS for the submit button hover state */
+        input[type="submit"]:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-bg"></div>
+    <div class="content">
+        <center>
+            <h2>Arora's Cafe</h2>
+            <h2>Shapath 4 SG Highway</h2>
+            <h2>Opp. Karanavati Club</h2>
+
+            <h3>***Booking Only For Today***</h3>
+            <br><br>
+
+            <form action="dine.php" method="get">
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" name="name" required /><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total Number Of Customer:</td>
+                        <td><input type="text" name="val" required /><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time (12 Hours Format):</td>
+                        <td><input type="text" name="time" required /><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
