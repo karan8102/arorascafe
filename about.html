@@ -5,6 +5,11 @@
     <title>Arora's Cafe</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+        * {
+            font-family: 'Oswald';
+        }
+
         @keyframes scrollBg {
             from {
                 transform: translateY(0px);
@@ -27,7 +32,7 @@
             padding-bottom: 330px;
             background-color: black;
             background-image: url('https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg');
-            background-size: cover;
+            background-size: 100% 100%; /* Adjusted image size */
             animation: scrollBg 35s linear forwards;
             z-index: -1; /* Move the animation behind other elements */
         }
@@ -35,31 +40,34 @@
         .content {
             position: relative;
             z-index: 1; /* Move the content above the animation */
-            font-family: 'Times New Roman', serif; /* Apply Times New Roman font to all content */
         }
 
-        /* CSS rule to change font color to white, increase font size for titles */
         h2, h3 {
             color: white;
-            font-size: 60px; /* Set font size to 60px for titles */
+            font-size: 50px; /* Set font size to 60px for titles */
         }
 
-        /* CSS rule to change font color to white for all content except input elements */
         .content *:not(input[type="text"]) {
             color: white;
         }
 
-        /* CSS rule to set font size for input elements */
-        input[type="text"] {
-            font-size: 24px; /* Set font size as suitable for input elements */
+        label {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
-        /* CSS for table cell content (excluding input elements) */
-        table td:not(input) {
-            font-size: 26px;
+        input[type="text"],
+        input[type="number"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        /* CSS for the submit button */
         input[type="submit"] {
             font-size: 24px;
             background-color: black;
@@ -75,7 +83,49 @@
             background-color: white;
             color: black;
         }
+
+        input[type="time"] {
+            background-color: black;
+        }
+
+        input[type="text"],
+        input[type="number"],
+         input[type="time"] 
+         {
+        background-color: black;
+        color: black;}
+        input[type="text"]
+         {color: white;}
     </style>
+    
+   <script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var number = document.getElementById("number").value;
+        var time = document.getElementById("time").value;
+
+        
+
+        if (name === "" && /^[a-zA-Z]+$/.test(name)) {
+            alert("Name cannot contain numeric values and must be filled out");
+            return false;
+        }
+
+        if (number <= 0 || isNaN(number)) {
+            alert("Total Number Of Customer must be a positive number");
+            return false;
+        }
+
+        // You can add more specific validations for the time input if needed
+
+        return true;
+    }
+</script>
+
+
+
+</script>
+   
 </head>
 
 <body>
@@ -86,28 +136,32 @@
             <h2>Shapath 4 SG Highway</h2>
             <h2>Opp. Karanavati Club</h2>
 
-            <h3>***Booking Only For Today***</h3>
+            <h3><b>Booking For Today Only</b></h3>
             <br><br>
 
-            <form action="dine.php" method="get">
+            <form action="dine.php" name="reg" method="get">
                 <table>
                     <tr>
-                        <td>Name:</td>
-                        <td><input type="text" name="name" required /><br><br>
+                        <td>
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" required />
                         </td>
                     </tr>
                     <tr>
-                        <td>Total Number Of Customer:</td>
-                        <td><input type="text" name="val" required /><br><br>
+                        <td>
+                            <label for="number">Total Number Of Customer:</label>
+                            <input type="number" name="number" id="number" required />
                         </td>
                     </tr>
                     <tr>
-                        <td>Time (12 Hours Format):</td>
-                        <td><input type="text" name="time" required /><br><br>
+                        <td>
+                            <label for="time">Time (24 Hours Format):</label>
+                            <input type="time" name="time" id="time" required />
                         </td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="submit" value="Submit" />
+                        <td>
+                            <input type="submit" name="submit" value="Submit" />
                         </td>
                     </tr>
                 </table>
@@ -117,8 +171,3 @@
 </body>
 
 </html>
-
-
-
-
-
