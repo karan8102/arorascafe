@@ -89,13 +89,13 @@ Whether you're a local or a traveler exploring Ahmedabad, Arora's Cafe welcomes 
         <div class="row-flex">
             <div class="flex-column-form">
                 <h3>Make a booking</h3>
-                <form method="get" name="reg" action="demo.php">
-                    Enter Your Name:  <input type="text" name="cname" required>
-                    <br><br>
-                    Enter Your Phone Number:  <input type="text" name="cphone" required>
-                    <br><br>
-                    <input type="submit" name="submit" value="Submit">
-                </form>
+                <form method="post" action="demo.php">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required><br><br>
+                  <label for="phone">Phone:</label>
+                  <input type="tel" id="phone" name="phone" required><br><br>
+                  <input type="submit" value="Book">
+              </form>
             </div>
             <div class="opening-time">
                 <h3>Opening times</h3>
